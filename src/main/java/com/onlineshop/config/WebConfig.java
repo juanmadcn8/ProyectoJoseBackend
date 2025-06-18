@@ -12,7 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
 
 	/**
 	 * Configura CORS para permitir solicitudes desde cualquier origen.
-	 * 
 	 * @return un WebMvcConfigurer que configura CORS
 	 */
 	@Bean
@@ -21,19 +20,18 @@ public class WebConfig implements WebMvcConfigurer {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("*")
-						.allowedMethods("*")
-						.allowedHeaders("*")
-						.allowCredentials(false)
-						.maxAge(3600);
+					.allowedOrigins("*")
+					.allowedMethods("*")
+					.allowedHeaders("*")
+					.allowCredentials(false)
+					.maxAge(3600);
 			}
 		};
 	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/products/images/**")
-				.addResourceLocations("classpath:/static/images/");
+		registry.addResourceHandler("/products/images/**").addResourceLocations("classpath:/static/images/");
 	}
 
 }
